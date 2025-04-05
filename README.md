@@ -24,4 +24,4 @@
 
 ## Screenshot
 
-![Screenshot of 3d diagonal menu exercise](/preview.png)
+![Screenshot of 3d diagonal menu exercise](./preview.png)
