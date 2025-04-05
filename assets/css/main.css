@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+:root {
+  --primary-color: #02abff;
+  --secondary-color: #494a51;
+  --body-color: #434750;
+  --text-color: #999;
+  --container-color: #3e3f46;
+  --white-color: #fff;
+
+  --ff-arvo: "Arvo", serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--ff-arvo);
+  background-color: var(--body-color);
+}
+
+.menu__list {
+  position: relative;
+  list-style-type: none;
+  transform: skewY(-15deg);
+}
+
+.menu__item {
+  position: relative;
+  width: 200px;
+  padding: 0.95rem;
+  background-color: var(--container-color);
+  z-index: calc(1 * var(--i));
+  transition: 0.5s;
+}
+
+.menu__item:hover {
+  background-color: var(--primary-color);
+  transform: translate(40px, 40px);
+}
+
+.menu__item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -40px;
+  width: 40px;
+  height: 100%;
+  filter: brightness(0.7);
+  transform-origin: right;
+  transform: skewY(45deg);
+  background-color: var(--secondary-color);
+}
+
+.menu__item::after {
+  content: attr(data-text);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 1.5rem;
+  color: rgba(0, 0, 0, 0.15);
+  font-weight: 600;
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -40px;
+  height: 40px;
+  width: calc(100% - 1.5rem);
+  filter: brightness(0.9);
+  transform-origin: bottom;
+  transform: skewX(45deg);
+  background-color: var(--secondary-color);
+  transition: 0.5s;
+}
+
+.menu__item:hover::before,
+.menu__item:hover::after {
+  background-color: var(--primary-color);
+}
+
+.menu__item .menu__link {
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: 0.5s;
+}
+
+.menu__item:hover .menu__link {
+  color: var(--white-color);
+}
+
+.menu__item:last-child::after {
+  box-shadow: -120px 120px 20px rgba(0, 0, 0, 0.25);
+}
+
+.menu__item .menu__link span {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  top: 0;
+  left: -40px;
+  height: 100%;
+  opacity: 0.5;
+  transform-origin: right;
+  transform: skewY(45deg);
+  transition: 0.5s;
+}
+
+.menu__item:hover .menu__link span {
+  opacity: 1;
+}
